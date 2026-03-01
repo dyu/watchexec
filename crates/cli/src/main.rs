@@ -1,15 +1,11 @@
-use mimalloc::MiMalloc;
+// #[cfg(target_env = "musl")]
 #[global_allocator]
-static GLOBAL: MiMalloc = MiMalloc;
+static GLOBAL: mimalloc::MiMalloc = mimalloc::MiMalloc;
 
 #[cfg(feature = "eyra")]
 extern crate eyra;
 
 use miette::IntoDiagnostic;
-
-#[cfg(target_env = "musl")]
-#[global_allocator]
-static GLOBAL: mimalloc::MiMalloc = mimalloc::MiMalloc;
 
 fn main() -> miette::Result<()> {
 	#[cfg(feature = "pid1")]

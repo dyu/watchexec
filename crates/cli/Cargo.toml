@@ -36,7 +36,7 @@ tempfile = "3.8.1"
 termcolor = "1.4.0"
 tracing = "0.1.40"
 which = "5.0.0"
-mimalloc = { version = "0.1.37", default-features = false }
+mimalloc = { git = "https://github.com/dyu/mimalloc_rust.git", branch = "legacy", default-features = false }
 
 [dev-dependencies]
 tracing-test = "0.1"
@@ -115,8 +115,8 @@ features = [
 	"ansi",
 ]
 
-[target.'cfg(target_env = "musl")'.dependencies]
-mimalloc = "0.1.39"
+#[target.'cfg(target_env = "musl")'.dependencies]
+#mimalloc = { git = "https://github.com/dyu/mimalloc_rust.git", branch = "legacy", default-features = false }
 
 [build-dependencies]
 embed-resource = "2.4.0"
